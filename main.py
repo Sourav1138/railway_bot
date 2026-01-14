@@ -323,18 +323,19 @@ def filter_audio(formats):
 def get_downloader_opts(model):
     """
     Returns the standard Options dictionary with Headers that trick 
-    Hotstar/Zee5 into thinking we are a real browser to avoid 475/500 errors.
+    Hotstar/Zee5 and YouTube into thinking we are a real browser in India.
     """
     opts = {
         'noplaylist': True,
         'quiet': True,
         'no_warnings': True,
-        'nocheckcertificate': True, # Important for some SSL configs
+        'nocheckcertificate': True, 
         'geo_bypass': True,
         'geo_bypass_country': 'IN', # Force India region
+        'source_address': '0.0.0.0', # Use Any Interface
     }
 
-    # Standard Chrome Headers
+    # Standard Chrome Headers + SPOOFED INDIAN IP
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -342,6 +343,8 @@ def get_downloader_opts(model):
         'Sec-Fetch-Mode': 'navigate',
         'Sec-Fetch-Site': 'same-origin',
         'Sec-Fetch-Dest': 'document',
+        # THIS TRICKS YOUTUBE INTO THINKING WE ARE IN INDIA
+        'X-Forwarded-For': '103.208.220.12', 
     }
 
     # Model specific enhancements
@@ -350,7 +353,6 @@ def get_downloader_opts(model):
             'Referer': 'https://www.hotstar.com/',
             'Origin': 'https://www.hotstar.com'
         })
-        # Hotstar throttles if concurrency is high
         opts['concurrent_fragment_downloads'] = 1
         opts['extractor_args'] = {'hotstar': {'min_timestamp': [0]}}
 
