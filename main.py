@@ -322,8 +322,7 @@ def filter_audio(formats):
 # --- CENTRALIZED DOWNLOADER OPTIONS ---
 def get_downloader_opts(model):
     """
-    Returns the standard Options dictionary with Headers that trick 
-    Hotstar/Zee5 and YouTube into thinking we are a real browser in India.
+    Returns standard Options.
     """
     opts = {
         'noplaylist': True,
@@ -332,7 +331,6 @@ def get_downloader_opts(model):
         'nocheckcertificate': True, 
         'geo_bypass': True,
         'geo_bypass_country': 'IN', # Force India region
-        'source_address': '0.0.0.0', # Use Any Interface
     }
 
     # Standard Chrome Headers + SPOOFED INDIAN IP
@@ -343,7 +341,7 @@ def get_downloader_opts(model):
         'Sec-Fetch-Mode': 'navigate',
         'Sec-Fetch-Site': 'same-origin',
         'Sec-Fetch-Dest': 'document',
-        # THIS TRICKS YOUTUBE INTO THINKING WE ARE IN INDIA
+        # TRICK YOUTUBE INTO THINKING WE ARE IN INDIA
         'X-Forwarded-For': '103.208.220.12', 
     }
 
@@ -361,11 +359,11 @@ def get_downloader_opts(model):
             'Referer': 'https://www.zee5.com/',
             'Origin': 'https://www.zee5.com'
         })
-    elif model == 'sonyliv':
-        headers.update({
-            'Referer': 'https://www.sonyliv.com/',
-            'Origin': 'https://www.sonyliv.com'
-        })
+        
+    elif model == 'ytdownload' or model == 'generic':
+        # YOUTUBE GEO-BYPASS: FORCE ANDROID CLIENT
+        # This tricks YouTube into serving the mobile version which is often less strict on Geo-Blocks
+        opts['extractor_args'] = {'youtube': {'player_client': ['android', 'web']}}
 
     opts['http_headers'] = headers
     
