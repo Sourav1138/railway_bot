@@ -86,7 +86,7 @@ SPOTIFY_CACHE = {}
 CACHE_TTL = 300  # 5 minutes
 
 MODEL_COOKIES = {
-    'hotstar': r"""[{"domain":"www.hotstar.com","expirationDate":1768455985.04058,"hostOnly":true,"httpOnly":false,"name":"geo","path":"/in/shows/pakdam-pakdai/1971003171/freaky-fridge/1271514308","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"IN,DL,NEWDELHI,28.60,77.20,55836"},{"domain":"www.hotstar.com","expirationDate":1768542330.6672,"hostOnly":true,"httpOnly":false,"name":"sessionUserUP","path":"/in","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJoSWRcIjpcImIyYmE3OThiMTA3ODQzZDE5MzA0NjQ3MDUxNTE2NTEwXCIsXCJwSWRcIjpcIjYyN2JkZjRkZjYyOTQyZmViYmEwODFkNjFiMzRhZDM4XCIsXCJkd0hpZFwiOlwiZTIyZjE4MzRiMGI2OTAxNGJkZTczN2E1ZmNjMjYzYWQ2MmRiZjRhMjg0MTFhZjYyNTIzMjY0OGU2OGY4OWQ4OFwiLFwiZHdQaWRcIjpcImM0NjAyNzUwMmQ3NDc3Y2IzZWZlNjYyMTc1MGIxYmFiOWZlMWIxM2VlODkxMDJiNjUyODJiODIwMGVhMzljYjBcIixcIm9sZEhpZFwiOlwiYjJiYTc5OGIxMDc4NDNkMTkzMDQ2NDcwNTE1MTY1MTBcIixcIm9sZFBpZFwiOlwiNjI3YmRmNGRmNjI5NDJmZWJiYTA4MWQ2MWIzNGFkMzhcIixcImlzUGlpVXNlck1pZ3JhdGVkXCI6ZmFsc2UsXCJuYW1lXCI6XCJTb3VyYXYgXCIsXCJwaG9uZVwiOlwiOTIyOTg0NDUzM1wiLFwiaXBcIjpcIjI0MDk6NDBlNToxMWUwOjVlMDg6ODAwMDo6XCIsXCJjb3VudHJ5Q29kZVwiOlwiaW5cIixcImN1c3RvbWVyVHlwZVwiOlwibnVcIixcInR5cGVcIjpcInBob25lXCIsXCJpc0VtYWlsVmVyaWZpZWRcIjpmYWxzZSxcImlzUGhvbmVWZXJpZmllZFwiOnRydWUsXCJkZXZpY2VJZFwiOlwiNGZhZWU3LTJlZDk5My03ZWRlZDMtODNmOTA1XCIsXCJwcm9maWxlXCI6XCJBRFVMVFwiLFwidmVyc2lvblwiOlwidjJcIixcInN1YnNjcmlwdGlvbnNcIjp7XCJpblwiOntcIlNpbmdsZURldmljZVwiOntcInN0YXR1c1wiOlwiU1wiLFwiZXhwaXJ5XCI6XCIyMDI2LTAzLTA1VDE3OjE5OjIxLjAwMFpcIixcInNob3dBZHNcIjpcIjFcIixcImNudFwiOlwiMVwifX19LFwiZW50XCI6XCJDdkVCQ2dVS0F3b0JBQkxuQVJJSFlXNWtjbTlwWkJJRGFXOXpFZ04zWldJU0NXRnVaSEp2YVdSMGRoSUdabWx5WlhSMkVnZGhjSEJzWlhSMkVnUnRkMlZpRWdkMGFYcGxiblIyRWdWM1pXSnZjeElHYW1sdmMzUmlFZ1J5YjJ0MUVnZHFhVzh0YkhsbUVncGphSEp2YldWallYTjBFZ1IwZG05ekVnUndZM1IyRWdOcWFXOFNCSGhpYjNnU0MzQnNZWGx6ZEdGMGFXOXVFZ1pyWlhCc1pYSVNER3BwYjNCb2IyNWxiR2wwWlJJTlptVmhkSFZ5WlcxdlltbHNaUm9DYzJRYUFtaGtHZ05tYUdRYUFqUnJJZ056WkhJcUJuTjBaWEpsYnlvSVpHOXNZbmsxTGpFcUNtUnZiR0o1UVhSdGIzTllBUXJVQVFvRkNnTUtBUVVTeWdFU0IyRnVaSEp2YVdRU0EybHZjeElEZDJWaUVnbGhibVJ5YjJsa2RIWVNCbVpwY21WMGRoSUhZWEJ3YkdWMGRoSUViWGRsWWhJSGRHbDZaVzUwZGhJRmQyVmliM01TQm1wcGIzTjBZaElFY205cmRSSUhhbWx2TFd4NVpoSUtZMmh5YjIxbFkyRnpkQklFZEhadmN4SUVjR04wZGhJRGFtbHZFZ1I0WW05NEVndHdiR0Y1YzNSaGRHbHZiaElHYTJWd2JHVnlHZ0p6WkJvQ2FHUWFBMlpvWkJvQ05Hc2lBM05rY2lvR2MzUmxjbVZ2S2doa2IyeGllVFV1TVNvS1pHOXNZbmxCZEcxdmMxZ0JDZzBTQ3dnQk9BRkFBVkR3RUZnQkNob0tFZ29BQ2c0U0JUVTFPRE0yRWdVMk5EQTBPUklFT0dSWUFSSjdDQUVRcUxPTCtNc3pHa2dLSGtwcGJ5NUpUaTVUYVc1bmJHVkVaWFpwWTJVdVNWQk1UVzl1ZEdoc2VSSU1VMmx1WjJ4bFJHVjJhV05sR2dOS2FXOGdrTHV5MlA0eUtLaXppL2pMTXpBR09BRkEwQ01vQVRBQk9pQUtIRWh2ZEhOMFlYSlFjbVZ0YVhWdExrbE9Mak5OYjI1MGFDNDBPVGtRQVVnQlwiLFwiaXNzdWVkQXRcIjoxNzY4NDU1OTI5NTI1LFwibWF0dXJpdHlMZXZlbFwiOlwiQVwiLFwiaW1nXCI6XCIzOFwiLFwiZHBpZFwiOlwiNjI3YmRmNGRmNjI5NDJmZWJiYTA4MWQ2MWIzNGFkMzhcIixcInN0XCI6MSxcImRhdGFcIjpcIkNnUUlBQ29BQ2dRSUFESUFDZ1FJQURvQUNnUUlBRUlBQ2dRSUFCSUFDaElJQUNJT2dBRVVpQUVCa0FISXU4aWFoekk9XCJ9IiwiaXNzIjoiVU0iLCJleHAiOjE3Njg1NDIzMjksImp0aSI6Ijg5MzhiOGVkMjA2ODQ2YmM5ZDdkMTVhNmFhZGIzYzkwIiwiaWF0IjoxNzY4NDU1OTI5LCJhcHBJZCI6IiIsInRlbmFudCI6IiIsInZlcnNpb24iOiIxXzAiLCJhdWQiOiJ1bV9hY2Nlc3MifQ.tcDXFu6NB7USrlbVg2ZskXXAlqsNCnaEPVcFeoMuOm4"},{"domain":"www.hotstar.com","expirationDate":1803015925.60223,"hostOnly":true,"httpOnly":false,"name":"SELECTED__LANGUAGE","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"eng"},{"domain":"www.hotstar.com","expirationDate":1803015930.47411,"hostOnly":true,"httpOnly":false,"name":"deviceId","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"4faee7-2ed993-7eded3-83f905"},{"domain":"www.hotstar.com","expirationDate":1803015926.574055,"hostOnly":true,"httpOnly":false,"name":"x-hs-setproxystate-ud","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"loc"},{"domain":".hotstar.com","expirationDate":1772799338,"hostOnly":false,"httpOnly":false,"name":"_gcl_au","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"1.1.1713456640.1765023338"},{"domain":".hotstar.com","expirationDate":1803015928.812142,"hostOnly":false,"httpOnly":false,"name":"_ga","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GA1.1.615010706.1765023339"},{"domain":".hotstar.com","expirationDate":1776231929,"hostOnly":false,"httpOnly":false,"name":"_fbp","path":"/","sameSite":"lax","secure":false,"session":false,"storeId":"0","value":"fb.1.1765023339610.656289074171067377"},{"domain":"www.hotstar.com","expirationDate":1799864902,"hostOnly":true,"httpOnly":false,"name":"userCountryCode","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"in"},{"domain":"www.hotstar.com","expirationDate":1799991928,"hostOnly":true,"httpOnly":false,"name":"userHID","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"b2ba798b107843d19304647051516510"},{"domain":"www.hotstar.com","expirationDate":1799991928,"hostOnly":true,"httpOnly":false,"name":"userPID","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"627bdf4df62942febba081d61b34ad38"},{"domain":".www.hotstar.com","hostOnly":false,"httpOnly":false,"name":"seo-referrer","path":"/","sameSite":"lax","secure":true,"session":true,"storeId":"0","value":""},{"domain":"www.hotstar.com","hostOnly":true,"httpOnly":false,"name":"appLaunchCounter","path":"/","sameSite":"unspecified","secure":false,"session":true,"storeId":"0","value":"1"},{"domain":"www.hotstar.com","expirationDate":1803015926.564508,"hostOnly":true,"httpOnly":false,"name":"loc","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"EPf9ocsGKAMiiALmbdZBMy3Br5PDGpnlMeKDOJLRnUTFKOsdNGQpWpM0Fr75SWqM%2FHLjajBQ4UA1Gl3ih3x1FrqbD7EHM1VcI%2F%2FnkFvlBLCnEXGxjiRBEsvWNZtKV8SF5ZwI2um60xZuWyJQB%2Bq3FIg3zDrnGuP9XAqDPjUdYIA4SIxRRkqpU9vxKHUaAdV%2B3voJtT%2BIzdQvfRfqstqu%2B1sOFdnKR4E%2FqZHCgpuDE1qfkwEaNf1Bker3Wa4%2FQwYoMMvaGDH040bcgwXO4ECt4YQs3NG1KstiUG0b5lcxHtbeb4EavjzDUR7Go76IzAt8RbCNsejnGFLJvpRr46qIYy8Addgt3%2F8Usuf%2FdtalHGUBkMI%3D"},{"domain":".hotstar.com","expirationDate":1768542327,"hostOnly":false,"httpOnly":false,"name":"_uetsid","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"86193040f0ad11f0a10c3f239a0f94fe"},{"domain":".hotstar.com","expirationDate":1802151927,"hostOnly":false,"httpOnly":false,"name":"_uetvid","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"47209d00d29d11f0a5396f3bea18486f"},{"domain":"www.hotstar.com","expirationDate":1799991928,"hostOnly":true,"httpOnly":false,"name":"userUP","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJoSWRcIjpcImIyYmE3OThiMTA3ODQzZDE5MzA0NjQ3MDUxNTE2NTEwXCIsXCJwSWRcIjpcIjYyN2JkZjRkZjYyOTQyZmViYmEwODFkNjFiMzRhZDM4XCIsXCJkd0hpZFwiOlwiZTIyZjE4MzRiMGI2OTAxNGJkZTczN2E1ZmNjMjYzYWQ2MmRiZjRhMjg0MTFhZjYyNTIzMjY0OGU2OGY4OWQ4OFwiLFwiZHdQaWRcIjpcImM0NjAyNzUwMmQ3NDc3Y2IzZWZlNjYyMTc1MGIxYmFiOWZlMWIxM2VlODkxMDJiNjUyODJiODIwMGVhMzljYjBcIixcIm9sZEhpZFwiOlwiYjJiYTc5OGIxMDc4NDNkMTkzMDQ2NDcwNTE1MTY1MTBcIixcIm9sZFBpZFwiOlwiNjI3YmRmNGRmNjI5NDJmZWJiYTA4MWQ2MWIzNGFkMzhcIixcImlzUGlpVXNlck1pZ3JhdGVkXCI6ZmFsc2UsXCJuYW1lXCI6XCJTb3VyYXYgXCIsXCJwaG9uZVwiOlwiOTIyOTg0NDUzM1wiLFwiaXBcIjpcIjI0MDk6NDBlNToxMWUwOjVlMDg6ODAwMDo6XCIsXCJjb3VudHJ5Q29kZVwiOlwiaW5cIixcImN1c3RvbWVyVHlwZVwiOlwibnVcIixcInR5cGVcIjpcInBob25lXCIsXCJpc0VtYWlsVmVyaWZpZWRcIjpmYWxzZSxcImlzUGhvbmVWZXJpZmllZFwiOnRydWUsXCJkZXZpY2VJZFwiOlwiNGZhZWU3LTJlZDk5My03ZWRlZDMtODNmOTA1XCIsXCJwcm9maWxlXCI6XCJBRFVMVFwiLFwidmVyc2lvblwiOlwidjJcIixcInN1YnNjcmlwdGlvbnNcIjp7XCJpblwiOntcIlNpbmdsZURldmljZVwiOntcInN0YXR1c1wiOlwiU1wiLFwiZXhwaXJ5XCI6XCIyMDI2LTAzLTA1VDE3OjE5OjIxLjAwMFpcIixcInNob3dBZHNcIjpcIjFcIixcImNudFwiOlwiMVwifX19LFwiZW50XCI6XCJDdkVCQ2dVS0F3b0JBQkxuQVJJSFlXNWtjbTlwWkJJRGFXOXpFZ04zWldJU0NXRnVaSEp2YVdSMGRoSUdabWx5WlhSMkVnZGhjSEJzWlhSMkVnUnRkMlZpRWdkMGFYcGxiblIyRWdWM1pXSnZjeElHYW1sdmMzUmlFZ1J5YjJ0MUVnZHFhVzh0YkhsbUVncGphSEp2YldWallYTjBFZ1IwZG05ekVnUndZM1IyRWdOcWFXOFNCSGhpYjNnU0MzQnNZWGx6ZEdGMGFXOXVFZ1pyWlhCc1pYSVNER3BwYjNCb2IyNWxiR2wwWlJJTlptVmhkSFZ5WlcxdlltbHNaUm9DYzJRYUFtaGtHZ05tYUdRYUFqUnJJZ056WkhJcUJuTjBaWEpsYnlvSVpHOXNZbmsxTGpFcUNtUnZiR0o1UVhSdGIzTllBUXJVQVFvRkNnTUtBUVVTeWdFU0IyRnVaSEp2YVdRU0EybHZjeElEZDJWaUVnbGhibVJ5YjJsa2RIWVNCbVpwY21WMGRoSUhZWEJ3YkdWMGRoSUViWGRsWWhJSGRHbDZaVzUwZGhJRmQyVmliM01TQm1wcGIzTjBZaElFY205cmRSSUhhbWx2TFd4NVpoSUtZMmh5YjIxbFkyRnpkQklFZEhadmN4SUVjR04wZGhJRGFtbHZFZ1I0WW05NEVndHdiR0Y1YzNSaGRHbHZiaElHYTJWd2JHVnlHZ0p6WkJvQ2FHUWFBMlpvWkJvQ05Hc2lBM05rY2lvR2MzUmxjbVZ2S2doa2IyeGllVFV1TVNvS1pHOXNZbmxCZEcxdmMxZ0JDZzBTQ3dnQk9BRkFBVkR3RUZnQkNob0tFZ29BQ2c0U0JUVTFPRE0yRWdVMk5EQTBPUklFT0dSWUFSSjdDQUVRcUxPTCtNc3pHa2dLSGtwcGJ5NUpUaTVUYVc1bmJHVkVaWFpwWTJVdVNWQk1UVzl1ZEdoc2VSSU1VMmx1WjJ4bFJHVjJhV05sR2dOS2FXOGdrTHV5MlA0eUtLaXppL2pMTXpBR09BRkEwQ01vQVRBQk9pQUtIRWh2ZEhOMFlYSlFjbVZ0YVhWdExrbE9Mak5OYjI1MGFDNDBPVGtRQVVnQlwiLFwiaXNzdWVkQXRcIjoxNzY4NDU1OTI5NTI1LFwibWF0dXJpdHlMZXZlbFwiOlwiQVwiLFwiaW1nXCI6XCIzOFwiLFwiZHBpZFwiOlwiNjI3YmRmNGRmNjI5NDJmZWJiYTA4MWQ2MWIzNGFkMzhcIixcInN0XCI6MSxcImRhdGFcIjpcIkNnUUlBQ29BQ2dRSUFESUFDZ1FJQURvQUNnUUlBRUlBQ2dRSUFCSUFDaElJQUNJT2dBRVVpQUVCa0FISXU4aWFoekk9XCJ9IiwiaXNzIjoiVU0iLCJleHAiOjE3Njg1NDIzMjksImp0aSI6Ijg5MzhiOGVkMjA2ODQ2YmM5ZDdkMTVhNmFhZGIzYzkwIiwiaWF0IjoxNzY4NDU1OTI5LCJhcHBJZCI6IiIsInRlbmFudCI6IiIsInZlcnNpb24iOiIxXzAiLCJhdWQiOiJ1bV9hY2Nlc3MifQ.tcDXFu6NB7USrlbVg2ZskXXAlqsNCnaEPVcFeoMuOm4"},{"domain":"www.hotstar.com","expirationDate":1768455970.667086,"hostOnly":true,"httpOnly":false,"name":"AK_SERVER_TIME","path":"/","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"1768455931"},{"domain":".hotstar.com","expirationDate":1803015930.674883,"hostOnly":false,"httpOnly":false,"name":"_ga_EPJ8DYH89Z","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768455928$o13$g1$t1768455930$j58$l0$h0"},{"domain":".hotstar.com","expirationDate":1803015930.687107,"hostOnly":false,"httpOnly":false,"name":"_ga_2PV8LWETCX","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768455928$o13$g1$t1768455930$j58$l0$h0"},{"domain":".hotstar.com","expirationDate":1803015930.700316,"hostOnly":false,"httpOnly":false,"name":"_ga_QV5FD29XJC","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768455928$o13$g1$t1768455930$j58$l0$h0"}]""",
+    'hotstar': r"""[{"domain":"www.hotstar.com","expirationDate":1768425004.14223,"hostOnly":true,"httpOnly":false,"name":"geo","path":"/in/shows/pakdam-pakdai/1971003171/freaky-fridge/1271514308","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"IN,DL,NEWDELHI,28.60,77.20,55836"},{"domain":"www.hotstar.com","expirationDate":1768511346.914174,"hostOnly":true,"httpOnly":false,"name":"sessionUserUP","path":"/in","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJoSWRcIjpcImIyYmE3OThiMTA3ODQzZDE5MzA0NjQ3MDUxNTE2NTEwXCIsXCJwSWRcIjpcIjYyN2JkZjRkZjYyOTQyZmViYmEwODFkNjFiMzRhZDM4XCIsXCJkd0hpZFwiOlwiZTIyZjE4MzRiMGI2OTAxNGJkZTczN2E1ZmNjMjYzYWQ2MmRiZjRhMjg0MTFhZjYyNTIzMjY0OGU2OGY4OWQ4OFwiLFwiZHdQaWRcIjpcImM0NjAyNzUwMmQ3NDc3Y2IzZWZlNjYyMTc1MGIxYmFiOWZlMWIxM2VlODkxMDJiNjUyODJiODIwMGVhMzljYjBcIixcIm9sZEhpZFwiOlwiYjJiYTc5OGIxMDc4NDNkMTkzMDQ2NDcwNTE1MTY1MTBcIixcIm9sZFBpZFwiOlwiNjI3YmRmNGRmNjI5NDJmZWJiYTA4MWQ2MWIzNGFkMzhcIixcImlzUGlpVXNlck1pZ3JhdGVkXCI6ZmFsc2UsXCJuYW1lXCI6XCJTb3VyYXYgXCIsXCJwaG9uZVwiOlwiOTIyOTg0NDUzM1wiLFwiaXBcIjpcIjI0MDk6NDBlNToxMWY0OjdjODo4MDAwOjpcIixcImNvdW50cnlDb2RlXCI6XCJpblwiLFwiY3VzdG9tZXJUeXBlXCI6XCJudVwiLFwidHlwZVwiOlwicGhvbmVcIixcImlzRW1haWxWZXJpZmllZFwiOmZhbHNlLFwiaXNQaG9uZVZlcmlmaWVkXCI6dHJ1ZSxcImRldmljZUlkXCI6XCI0ZmFlZTctMmVkOTkzLTdlZGVkMy04M2Y5MDVcIixcInByb2ZpbGVcIjpcIkFEVUxUXCIsXCJ2ZXJzaW9uXCI6XCJ2MlwiLFwic3Vic2NyaXB0aW9uc1wiOntcImluXCI6e1wiU2luZ2xlRGV2aWNlXCI6e1wic3RhdHVzXCI6XCJTXCIsXCJleHBpcnlcIjpcIjIwMjYtMDMtMDVUMTc6MTk6MjEuMDAwWlwiLFwic2hvd0Fkc1wiOlwiMVwiLFwiY250XCI6XCIxXCJ9fX0sXCJlbnRcIjpcIkN2RUJDZ1VLQXdvQkFCTG5BUklIWVc1a2NtOXBaQklEYVc5ekVnTjNaV0lTQ1dGdVpISnZhV1IwZGhJR1ptbHlaWFIyRWdkaGNIQnNaWFIyRWdSdGQyVmlFZ2QwYVhwbGJuUjJFZ1YzWldKdmN4SUdhbWx2YzNSaUVnUnliMnQxRWdkcWFXOHRiSGxtRWdwamFISnZiV1ZqWVhOMEVnUjBkbTl6RWdSd1kzUjJFZ05xYVc4U0JIaGliM2dTQzNCc1lYbHpkR0YwYVc5dUVnWnJaWEJzWlhJU0RHcHBiM0JvYjI1bGJHbDBaUklOWm1WaGRIVnlaVzF2WW1sc1pSb0NjMlFhQW1oa0dnTm1hR1FhQWpScklnTnpaSElxQm5OMFpYSmxieW9JWkc5c1luazFMakVxQ21SdmJHSjVRWFJ0YjNOWUFRclVBUW9GQ2dNS0FRVVN5Z0VTQjJGdVpISnZhV1FTQTJsdmN4SURkMlZpRWdsaGJtUnliMmxrZEhZU0JtWnBjbVYwZGhJSFlYQndiR1YwZGhJRWJYZGxZaElIZEdsNlpXNTBkaElGZDJWaWIzTVNCbXBwYjNOMFloSUVjbTlyZFJJSGFtbHZMV3g1WmhJS1kyaHliMjFsWTJGemRCSUVkSFp2Y3hJRWNHTjBkaElEYW1sdkVnUjRZbTk0RWd0d2JHRjVjM1JoZEdsdmJoSUdhMlZ3YkdWeUdnSnpaQm9DYUdRYUEyWm9aQm9DTkdzaUEzTmtjaW9HYzNSbGNtVnZLZ2hrYjJ4aWVUVXVNU29LWkc5c1lubEJkRzF2YzFnQkNnMFNDd2dCT0FGQUFWRHdFRmdCQ2hvS0Vnb0FDZzRTQlRVMU9ETTJFZ1UyTkRBME9SSUVPR1JZQVJKN0NBRVFxTE9MK01zekdrZ0tIa3BwYnk1SlRpNVRhVzVuYkdWRVpYWnBZMlV1U1ZCTVRXOXVkR2hzZVJJTVUybHVaMnhsUkdWMmFXTmxHZ05LYVc4Z2tMdXkyUDR5S0tpemkvakxNekFHT0FGQTBDTW9BVEFCT2lBS0hFaHZkSE4wWVhKUWNtVnRhWFZ0TGtsT0xqTk5iMjUwYUM0ME9Ua1FBVWdCXCIsXCJpc3N1ZWRBdFwiOjE3Njg0MjM5OTQ4MDgsXCJtYXR1cml0eUxldmVsXCI6XCJBXCIsXCJpbWdcIjpcIjM4XCIsXCJkcGlkXCI6XCI2MjdiZGY0ZGY2Mjk0MmZlYmJhMDgxZDYxYjM0YWQzOFwiLFwic3RcIjoxLFwiZGF0YVwiOlwiQ2dRSUFDb0FDZ1FJQUJJQUNnUUlBRUlBQ2dRSUFEb0FDZ1FJQURJQUNoSUlBQ0lPZ0FFVWlBRUJrQUhJdThpYWh6ST1cIn0iLCJpc3MiOiJVTSIsImV4cCI6MTc2ODUxMDM5NCwianRpIjoiODkzOGI4ZWQyMDY4NDZiYzlkN2QxNWE2YWFkYjNjOTAiLCJpYXQiOjE3Njg0MjM5OTQsImFwcElkIjoiIiwidGVuYW50IjoiIiwidmVyc2lvbiI6IjFfMCIsImF1ZCI6InVtX2FjY2VzcyJ9.SlEm-BqlF6rCJt5tkt7ExxT8GwgybcadExHHD929h8c"},{"domain":".www.hotstar.com","hostOnly":false,"httpOnly":false,"name":"seo-referrer","path":"/","sameSite":"lax","secure":true,"session":true,"storeId":"0","value":""},{"domain":"www.hotstar.com","hostOnly":true,"httpOnly":false,"name":"appLaunchCounter","path":"/","sameSite":"unspecified","secure":false,"session":true,"storeId":"0","value":"1"},{"domain":"www.hotstar.com","expirationDate":1768424986.914064,"hostOnly":true,"httpOnly":false,"name":"AK_SERVER_TIME","path":"/","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"1768424947"},{"domain":".hotstar.com","expirationDate":1768511347,"hostOnly":false,"httpOnly":false,"name":"_uetsid","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"86193040f0ad11f0a10c3f239a0f94fe"},{"domain":".hotstar.com","expirationDate":1802120947,"hostOnly":false,"httpOnly":false,"name":"_uetvid","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"47209d00d29d11f0a5396f3bea18486f"},{"domain":".hotstar.com","expirationDate":1802984949.2014,"hostOnly":false,"httpOnly":false,"name":"_ga_2PV8LWETCX","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768423994$o11$g1$t1768424949$j59$l0$h0"},{"domain":".hotstar.com","expirationDate":1802984949.213722,"hostOnly":false,"httpOnly":false,"name":"_ga_EPJ8DYH89Z","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768423994$o11$g1$t1768424949$j60$l0$h0"},{"domain":".hotstar.com","expirationDate":1802984949.234664,"hostOnly":false,"httpOnly":false,"name":"_ga_QV5FD29XJC","path":"/","sameSite":"unspecified","secure":false,"session":false,"storeId":"0","value":"GS2.1.s1768423993$o11$g1$t1768424949$j60$l0$h0"}]""",
     'zee5': r"""""",
     'sonyliv': r"""""",
     'instagram': r"""""",
@@ -295,20 +295,24 @@ def get_formatted_filename(info, model):
 def filter_formats(formats):
     """
     Returns ALL valid video formats (including those with audio) sorted by resolution.
-    Accepts formats even without explicit bitrate if resolution exists.
+    Accepts formats even without explicit bitrate/codec if resolution/ext exists.
+    Fixes OTT issues where codec info might be missing.
     """
     video_formats = []
     seen_ids = set()
     
     for f in formats:
-        # Must have video codec
-        vcodec = f.get('vcodec', 'none')
-        if vcodec == 'none': continue
+        # Relaxed checks for OTT
+        has_video = False
+        if f.get('vcodec') and f.get('vcodec') != 'none': has_video = True
+        elif f.get('width') or f.get('height'): has_video = True
+        elif f.get('ext') in ['mp4', 'mkv', 'webm', 'ts'] and f.get('acodec') != 'none': has_video = True # Assume muxed if audio exists in video container
         
-        # Must have height or rows or explicit resolution
+        if not has_video: continue
+        
+        # Robust height check
         height = f.get('height') or f.get('rows')
         if not height: 
-            # Fallback: check resolution string e.g. "1920x1080"
             res = f.get('resolution')
             if res and 'x' in res:
                 try: height = int(res.split('x')[1])
@@ -327,10 +331,11 @@ def filter_formats(formats):
         acodec = f.get('acodec')
         
         # Label Construction
+        label_parts = []
         if height > 0:
-            label_parts = [f"{height}p"]
+            label_parts.append(f"{height}p")
         else:
-            label_parts = ["Unknown Resolution"]
+            label_parts.append("Unknown Resolution")
             
         if ext: label_parts.append(f"({ext})")
         if fps: label_parts.append(f"{fps}fps")
@@ -368,10 +373,11 @@ def filter_audio(formats):
     lang_map = { 'hin': 'Hindi', 'mal': 'Malayalam', 'tam': 'Tamil', 'tel': 'Telugu', 'kan': 'Kannada', 'ben': 'Bengali', 'mar': 'Marathi', 'guj': 'Gujarati', 'pan': 'Punjabi', 'eng': 'English', 'jap': 'Japanese' }
 
     for f in formats:
-        # Must be audio only (no video)
+        # Must be audio only
         acodec = f.get('acodec', 'none')
         vcodec = f.get('vcodec', 'none')
         
+        # Strict check: Audio codec must exist, Video codec must NOT exist
         if acodec == 'none': continue
         if vcodec != 'none': continue
         
@@ -392,14 +398,13 @@ def filter_audio(formats):
         if note: label += f" [{note}]"
         
         audio_formats.append({
-            'id': fid, # Pass format ID for precise selection
+            'id': fid, 
             'language': display_lang,
             'bitrate': abr,
             'ext': ext,
             'label': label
         })
             
-    # Sort by Language, then Bitrate (desc)
     return sorted(audio_formats, key=lambda x: (x['language'], -x['bitrate']))
 
 # --- CENTRALIZED DOWNLOADER OPTIONS ---
@@ -443,10 +448,11 @@ def get_downloader_opts(model):
         
     elif model == 'ytdownload' or model == 'generic':
         # YOUTUBE STRATEGY:
-        # 1. Use 'android' first (for geo-bypass reliability), then 'ios', then 'web'.
-        # 2. Inject X-Forwarded-For to help.
-        # 3. DO NOT set User-Agent manually here; let yt-dlp set it per client.
-        opts['extractor_args'] = {'youtube': {'player_client': ['android', 'ios', 'web']}}
+        # 1. Use 'android' which naturally bypasses geo-blocks (most robust).
+        # 2. Use 'ios' as fallback (good quality).
+        # 3. DO NOT use 'web' as it causes geo-block errors (403/Unavailable) on server IPs.
+        # 4. Inject X-Forwarded-For to assist clients.
+        opts['extractor_args'] = {'youtube': {'player_client': ['android', 'ios']}}
         opts['geo_bypass'] = True
         opts['geo_bypass_country'] = 'IN' 
         opts['http_headers'] = spoof_headers 
@@ -566,7 +572,6 @@ def single_downloader_core(url, model, format_id, audio_id, tid, cancel_event):
         merge_msg = f"Merging Video {format_id} + Audio {audio_id}"
     elif format_id:
         # DO NOT append +bestaudio here. Trust the user's ID.
-        # This fixes "Requested format is not available" if user picked a pre-merged format (e.g. 360p)
         req_format = f"{format_id}" 
         merge_msg = f"Downloading Format {format_id}"
     elif audio_id:
